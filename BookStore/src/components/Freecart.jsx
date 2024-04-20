@@ -1,8 +1,24 @@
 import React from 'react'
 import imge from '/oneBook.jpg'
 import Cart from './Cart'
+import { useEffect , useState } from "react";
+import axios from "axios";
 
 function Freecart() {
+  const [book, setBook] = useState([]);
+
+  useEffect(() => {
+    const getBook = async () => {
+      try {
+        const res = await axios.get("http://localhost:3000/book");
+        setBook(res.data);
+      } catch (error) {
+        console.log("eroor : ", error);
+      }
+    };
+    getBook();
+  }, []);
+  const slicedItems = book.slice(0, 4);
   return (
     <>
         <div className=' mt-8 ml-5'>
@@ -10,10 +26,16 @@ function Freecart() {
           <p className='text-green-300 font-bold'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error deleniti tempora veritatis, tenetur mollitia reiciendis!</p>
         </div>
       <div className='flex mt-5 overflow-hidden gap-4 bg-transparent ml-3 mr-3'>
-        <Cart tittle={"Things Fall Apart"} author={"JatinSardana"} language={"English"} year={"free"}/>
-        <Cart tittle={"Fairy tales"} author={"JatinSardana"} language={"English"} year={"free"}/>
-        <Cart tittle={"The Divine Comedy"} author={"JatinSardana"} language={"English"} year={"free"}/>
-        <Cart tittle={"The Epic Of Gilgamesh"} author={"JatinSardana"} language={"English"} year={"free"}/>                
+        {slicedItems.map((items)=>(
+          <Cart
+          id={items.id}
+          tittle={items.title}
+          author={items.author}
+          year={"free"}
+          language={items.language}
+          image={items.imageLink}
+           />          
+        ))}
       </div>
     </>
   )

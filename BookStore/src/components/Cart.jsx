@@ -1,7 +1,7 @@
 import React from 'react'
 import imge from '/oneBook.jpg'
 
-function Cart({tittle , author , year , language , image}) {
+function Cart({id , tittle , author , year , language , image}) {
   return (
     <>
       <div className="card card-compact w-96 bg-base-300 shadow-2xl">

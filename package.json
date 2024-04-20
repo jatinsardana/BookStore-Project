@@ -1,17 +1,27 @@
 {
-  "name": "bookstore-project",
+  "name": "backend",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "jatin",
   "license": "ISC",
   "dependencies": {
     "express": "^4.19.2",
-    "node-dom": "^0.1.0",
+    "mongodb": "^6.5.0",
+    "nodemon": "^3.1.0",
     "zod": "^3.22.5"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jatinsardana/BookStore-Project.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jatinsardana/BookStore-Project/issues"
+  },
+  "homepage": "https://github.com/jatinsardana/BookStore-Project#readme",
   "description": ""
 }
